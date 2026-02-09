@@ -1,16 +1,21 @@
 package oop_00000135292_lucas.week01
 
 fun main(args: Array<String>) {
-    var radius: Double = 7.0
-    var pi: Double = 3.14
-    var area:  Double = pi * radius * radius
-    printlnb("Radius: "+radius", Area:"+area)
+
+    val radius = 7.0
+    val pi = 3.14
+
+    val area = pi * radius * radius
+
+    println("Radius: $radius, Area: $area")
+
     checkSize(area)
 }
-fun checkSize(area:  Double) {
+
+fun checkSize(area: Double) {
     if (area > 100) {
-        println("this is a big circle")
+        println("This is a Big Circle")
     } else {
-        println("this is a small circle")
+        println("This is a Small Circle")
     }
 }
