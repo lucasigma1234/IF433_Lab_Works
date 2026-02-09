@@ -6,13 +6,8 @@ fun main(args: Array<String>) {
     val price = 750000
     val isDiscount = true
 
-    val finalPrice: Int
-
-    if (isDiscount) {
-        finalPrice = price - 200000
-    } else {
-        finalPrice = price
-    }
+    val finalPrice =
+        if (isDiscount) price - 200000 else price
 
     println("Game: $gameName")
     println("Final Price: $finalPrice")
