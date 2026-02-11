@@ -3,13 +3,13 @@ package oop_00000135292_lucas.week02
 import java.util.Scanner
 
 class Student (val name:String,val nim:String, val major:String){
-    init{
-        //Validasi sederhana: Cek panjang NIM
-        if (nim.length != 5){
-            println("WARNING: Object tercipta dengan NIM ($nim) yang tidak tidak valid")
-            println("Data mahasiswa $name mungkin akan bermasalah di sistem")
-        }else {
-            println("LOG: Object Student $name berhasil dialokasikan di Memory")
+    init {
+        // Validasi Sederhana: Cek panjang NIM
+        if (nim.length != 5) {
+            println("WARNING: Objek tercipta dengan NIM ($nim) yang tidak valid!")
+            println("Data mahasiswa $name mungkin akan bermasalah di sistem.")
+        } else {
+            println("LOG: Objek Student $name berhasil dialokasikan di Memory.")
         }
     }
 
