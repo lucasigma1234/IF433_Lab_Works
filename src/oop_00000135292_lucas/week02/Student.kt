@@ -1,13 +1,26 @@
 package oop_00000135292_lucas.week02
 
-class Student (val name: String, val nim: String, val major: String) {
-    init {
-        if (nim.length != 5) {
-            println("Warning: objek tercipta dengan NIL ($nim) yang tidak valid!")
-            println("Data mahasiswa $name mungkin akan bermasalah disistem.")
-        } else {
-            println("Log: objek student $name berhasil dialokasikan di memory.")
-        }
+import java.util.Scanner
+
+fun main(){
+    val scanner = Scanner(System.`in`)
+    println("---APK PMB UMN---")
+    println("Masukkan Nama: ")
+    val name = scanner.nextLine()
+    println("Masukkan NIM (wajib 5 karakter): ")
+    val nim = scanner.next()
+    scanner.nextLine()
+
+    //validasi disisi pemanggil
+    if(nim.length != 5) {
+        println("EROR: pendaftaran di batalkan. NIM harus 5 karakter.")
+    } else {
+        print("Masukkan Jurusan: ")
+        val major = scanner.nextInt()
+
+        //instalasi objek data sudah aman
+        val s1= Student(name, nim, major)
+        println("Status: pendaftaran selesai.")
     }
 }
 
