@@ -16,4 +16,7 @@ class Employee(val name: String) {
             performanceRating = rating
         }
     }
+
+    val bonus: Int
+        get() = salary * performanceRating / 10
 }
