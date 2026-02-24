@@ -1,10 +1,10 @@
 package oop_00000135292_lucas.week03
 
 fun main() {
-    val weapon = Weapon("Excalibur")
+    val player = Player("Lucas")
 
-    weapon.damage = -50
-    weapon.damage = 9999
+    // player.xp  // ERROR: xp bersifat private
 
-    println("Tier Weapon: ${weapon.tier}")
+    player.addXp(50)
+    player.addXp(60)
 }
