@@ -8,4 +8,12 @@ class Employee(val name: String) {
                 field = value
             }
         }
+
+    private var performanceRating: Int = 0
+
+    fun setPerformanceRating(rating: Int) {
+        if (rating in 1..5) {
+            performanceRating = rating
+        }
+    }
 }
