@@ -1,5 +1,5 @@
 package oop_00000135292_lucas.week03
 
 class Employee(val nama: String) {
-    var salary: int= 0
+    var salary: Int = 0
 }
