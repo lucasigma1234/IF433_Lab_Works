@@ -7,8 +7,14 @@ class Employee(
         set(value) {
             if (value >= 0) {
                 field = value
-            } else {
-                println("Gaji tidak boleh negatif")
             }
         }
+
+    private var performanceRating: Int = 0
+
+    fun updatePerformance(rating: Int) {
+        if (rating in 1..5) {
+            performanceRating = rating
+        }
+    }
 }
