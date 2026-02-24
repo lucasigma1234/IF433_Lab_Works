@@ -1,10 +1,10 @@
 package oop_00000135292_lucas.week03
 
 fun main() {
-    val emp = Employee("Andi")
+    val weapon = Weapon("Excalibur")
 
-    emp.salary = 5000
-    emp.setPerformanceRating(4)
+    weapon.damage = -50
+    weapon.damage = 9999
 
-    println("Bonus: ${emp.bonus}")
+    println("Tier Weapon: ${weapon.tier}")
 }
