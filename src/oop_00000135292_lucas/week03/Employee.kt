@@ -5,6 +5,10 @@ class Employee(
 ) {
     var salary: Int = 0
         set(value) {
-            this.salary = value // ❌ SALAH → StackOverflow
+            if (value >= 0) {
+                field = value
+            } else {
+                println("Gaji tidak boleh negatif")
+            }
         }
 }
