@@ -1,0 +1,7 @@
+package oop_00000135292_lucas.week04
+
+open class Car(brand:String, val numberOfDoors: Int) : Vehicle(brand) {
+    fun openTrunk(){
+        println("bagasi mobil $brand dengan $numberOfDoors pintu dibuka")
+    }
+}
