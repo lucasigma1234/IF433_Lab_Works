@@ -3,11 +3,8 @@ package oop_00000135292_lucas.week05
 fun main() {
     val dosen1 = Dosen(nama = "Pak Lucas", nidn = "0123456")
     val admin1 = Admin(nama = "Bu Alya")
-
     val daftarPegawai: List<Pegawai> = listOf(dosen1, admin1)
-
     println("=== AKTIVITAS PEGAWAI ===")
-
     for (pegawai in daftarPegawai) {
         pegawai.bekerja()
         when (pegawai) {
@@ -30,7 +27,6 @@ fun main() {
     println("Luas Persegi Panjang (10x5)    : $luasPersegiPanjang")
     val luasLingkaran = math.hitungLuas(7.0)
     println("Luas Lingkaran (r 7.0)         : $luasLingkaran")
-
     println("\n=== SISTEM PEMBAYARAN E-COMMERCE ===")
 
     val myWallet = EWallet("Lucas Pay", 50000.0)
@@ -40,6 +36,12 @@ fun main() {
     for (metode in listPembayaran) {
         println("Memproses pembayaran untuk: ${metode.accountName}")
         metode.processPayment(75000.0)
+        if (metode is EWallet) {
+            println("-> Mendeteksi E-Wallet, mencoba pemulihan saldo...")
+            metode.topUp(50000.0)
+            println("-> Mencoba pembayaran ulang...")
+            metode.processPayment(75000.0)
+        }
         println("------------------------------")
     }
 }
