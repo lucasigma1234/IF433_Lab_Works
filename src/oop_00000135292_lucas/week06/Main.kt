@@ -20,10 +20,10 @@ fun main() {
     val pay2 = CreditCard()
 
     println("\n=== TESTING CHECKOUT ===")
-    processCheckout(method = pay1, amount = 50000.0)
-    processCheckout(method = pay2, amount = 150000.0)
+    processCheckout(pay1, 50000.0)
+    processCheckout(pay2, 150000.0)
 
-    // === SMART HOME TEST ===
+    // === SMART HOME SYSTEM TEST ===
     println("\n=== SMART HOME TEST ===")
 
     val hub = SmartHomeHub()
@@ -35,4 +35,10 @@ fun main() {
     hub.addDevice(lamp)
     hub.addDevice(speaker)
     hub.addDevice(cctv)
+
+    // aktifkan mode keamanan
+    hub.activateSecurityMode()
+
+    // matikan semua perangkat switchable
+    hub.turnOffAllSwitches()
 }
