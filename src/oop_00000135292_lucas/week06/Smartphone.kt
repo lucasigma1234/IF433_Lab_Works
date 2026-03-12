@@ -1,0 +1,4 @@
+package oop_00000135292_lucas.week06
+
+class Smartphone : Camera, Phone {
+}
