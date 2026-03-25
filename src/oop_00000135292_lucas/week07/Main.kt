@@ -1,4 +1,11 @@
 package oop_00000135292_lucas.week07
 
-class Main {
+fun main() {
+    println("=== TEST SINGLETON ===")
+    println("Status: ${DatabaseManager.connectionStatus}")
+    DatabaseManager.connect()
+
+    println("\n=== TEST COMPANION OBJECT ===")
+    val client = NetworkClient.createClient()
+    client.connect()
 }
