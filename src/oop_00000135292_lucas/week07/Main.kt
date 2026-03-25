@@ -30,11 +30,10 @@ fun main() {
     println("\n=== TEST SEALED CLASS ===")
     val response: ApiResponse = Success("Data berhasil ditarik!")
 
-    // ERROR: 'when' expression must be exhaustive
-    /*
     val uiMessage = when (response) {
-        is ApiResponse.Success -> "Tampilkan: ${response.data}"
-        is ApiResponse.Error -> "Munculkan alert: ${response.message}"
+        is Success -> "Tampilkan: ${response.data}"
+        is Error -> "Munculkan alert: ${response.message}"
+        is Loading -> "Tampilkan Spinner"
     }
-    */
+    println(uiMessage)
 }
