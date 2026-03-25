@@ -45,4 +45,13 @@ fun main() {
     println("Drop Chance Item LEGENDARY: ${ItemRarity.LEGENDARY.dropChance}%")
     val playerWeapon = Weapon.forgeStarterSword()
     println("Senjata Baru Ditempa: ${playerWeapon.item}")
+    println("\n=== [TASK] BLACKSMITH UPGRADE & BATTLE EVENT ===")
+
+    val upgradedSword = playerWeapon.item.copy(name = "Pedang Kayu Berkekuatan Gaib", damage = 25)
+    println("Senjata Setelah Upgrade: $upgradedSword")
+
+    processEvent(SafeZone)
+    processEvent(MonsterEncounter("Goblin Nakal"))
+    processEvent(LootDropped(upgradedSword))
+    processEvent(GameOver("Terkena jebakan racun"))
 }
