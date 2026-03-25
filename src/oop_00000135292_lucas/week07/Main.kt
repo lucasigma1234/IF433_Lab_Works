@@ -36,4 +36,8 @@ fun main() {
         is Loading -> "Tampilkan Spinner"
     }
     println(uiMessage)
+
+    println("\n=== [TASK] TEST SINGLETON GAME MANAGER ===")
+    GameManager.startGame()
+    GameManager.startGame()
 }
