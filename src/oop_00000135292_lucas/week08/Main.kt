@@ -9,7 +9,7 @@ fun main() {
 
     println("\n=== TEST LET BLOCK ===")
     val validOrder = Order(null, 250000)
-    val receipt = validOrder.totalPrice?.let {price ->
+    val receipt = validOrder.totalPrice?.let { price ->
         val tax = price * 0.11
         "Transaksi valid. Harga: Rp$price, Pajak: Rp$tax"
     } ?: "Transaksi invalid: Harga belum diset"
@@ -17,7 +17,8 @@ fun main() {
 
     println("\n=== TEST SAFE CASTING ===")
     val mixedData: List<Any> = listOf(
-        "Smartphone", 1500000, UserProfile("Andi",null), "Laptop", 4500000.0)
+        "Smartphone", 1500000, UserProfile("Andi", null), "Laptop", 4500000.0
+    )
 
     for (item in mixedData) {
         val text = item as? String
@@ -25,15 +26,24 @@ fun main() {
             println("Ditemukan teks: ${it.uppercase()}")
         }
     }
+
     val someObject: Any = 100
     val safeString = someObject as? String ?: "Unknown String"
     println("Hasil cast + fallback: $safeString")
 
-    println("\n=== TEST THE RED BUTTON (!!) ===")
-    val toxicData: String? = null
+    println("\n=== TEST REQUIRE NOT NULL (REPLACEMENT FOR !!) ===")
+
+    val apiResponse: Map<String, String?> = mapOf(
+        "status" to "200",
+        "token" to null
+    )
+
     try {
-        val length = toxicData!!.length
-    } catch (e: NumberFormatException) {
-        println("CRASH (NPE)! Jangan gunakan!! secara sembarangan")
+        val token = requireNotNull(apiResponse["token"]) {
+            "CRITICAL EXCEPTION: Token otentikasi tidak ditemukan dari server"
+        }
+        println("Token diterima: $token")
+    } catch (e: IllegalArgumentException) {
+        println(e.message)
     }
 }
