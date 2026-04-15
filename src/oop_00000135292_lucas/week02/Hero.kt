@@ -1,60 +1,61 @@
 package oop_00000135292_lucas.week02
 
+
 import java.util.Scanner
 
-fun main() {
-    val scanner = Scanner(System.`in`)
-
-    println("--- MINI RPG BATTLE ---")
-
-    print("Masukkan Nama Hero: ")
-    val heroName = scanner.nextLine()
-
-    print("Masukkan Base Damage Hero: ")
-    val baseDamage = scanner.nextInt()
-
-    val hero = Hero(heroName, baseDamage)
-    var enemyHp = 100
-
-    while (hero.isAlive() && enemyHp > 0) {
-
-        println("\n1. Serang")
-        println("2. Kabur")
-        print("Pilihan: ")
-        val choice = scanner.nextInt()
-
-        if (choice == 1) {
-            hero.attack("Musuh")
-
-            enemyHp -= hero.baseDamage
-            if (enemyHp < 0) enemyHp = 0
-
-            println("HP Musuh sekarang: $enemyHp")
-
-            // Musuh membalas jika masih hidup
-            if (enemyHp > 0) {
-                val enemyDamage = (10..20).random()
-                println("Musuh menyerang balik! Damage: $enemyDamage")
-
-                hero.takeDamage(enemyDamage)
-                println("HP Hero sekarang: ${hero.hp}")
-            }
-
-        } else if (choice == 2) {
-            println("🏃 Hero kabur dari pertempuran!")
-            break
+class hero (var name: String, var hp: Int, var baseDamage: Int){
+    init{
+        hp = 100;
+    }
+    fun takeDamage (damage: Int): Boolean {
+        hp = hp - damage
+        if(hp <= 0) {
+            println("You died")
+            return false
         } else {
-            println("Input tidak valid!")
+            println("You take damage $damage")
+            return true
         }
     }
-
-    println("\n--- HASIL PERTEMPURAN ---")
-    if (hero.isAlive() && enemyHp <= 0) {
-        println("🏆 HERO MENANG!")
-    } else if (!hero.isAlive()) {
-        println("☠️ HERO KALAH!")
-    } else {
-        println("⚖️ Pertempuran dihentikan.")
+    fun attack (targetName: String){
+        println("$name attacked $targetName")
     }
 }
+
+fun main(){
+    val scanner = Scanner(System.`in`)
+    var character = hero("", 100, 0)
+    var enemyHp = 100
+    val enemy = "Goblin"
+    var isAlive = true
+    val enemyDamage = (1..20). random()
+
+    print("Input name: ")
+    character.name = scanner.nextLine()
+
+    print("Input your damage: ")
+    character.baseDamage = scanner.nextInt()
+
+    while(isAlive){
+        println("Your HP: ${character.hp}\nEnemy Hp: ${enemyHp}\n1. Serang\n2. Kabur")
+        var choice = scanner.nextInt()
+        if (choice == 1) {
+            character.attack(enemy)
+            enemyHp = enemyHp - character.baseDamage
+            if (enemyHp > 0){
+                character.takeDamage(enemyDamage)
+            } else {
+                break
+            }
+        } else if (choice == 2) {
+            println("you sucessfully fled from the scene")
+            break
+        }
     }
+    if (character.hp < 0){
+        println("you lose!")
+    } else if (enemyHp < 0){
+        println("you win!")
+    }
+
+}

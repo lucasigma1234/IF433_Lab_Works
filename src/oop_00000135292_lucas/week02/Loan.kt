@@ -2,31 +2,32 @@ package oop_00000135292_lucas.week02
 
 import java.util.Scanner
 
-fun main() {
-    val scanner = Scanner(System.`in`)
-
-    println("--- SISTEM PEMINJAMAN BUKU ---")
-
-    print("Judul Buku: ")
-    val title = scanner.nextLine()
-
-    print("Nama Peminjam: ")
-    val borrower = scanner.nextLine()
-
-    print("Lama Pinjam (hari): ")
-    var duration = scanner.nextInt()
-
-    // Validasi sesuai modul
-    if (duration < 0) {
-        println("Durasi tidak valid, otomatis diset ke 1 hari.")
-        duration = 1
+class loan (var booktitle: String, var borrower: String, var loanDuration: Int){
+    init {
+        loanDuration = 1;
     }
+    fun calculateFine(): Int{
+        var totalDenda: Int
+        if (loanDuration >= 3){
+            totalDenda = (loanDuration - 3) * 2000
+        } else {
+            totalDenda = loanDuration - 3
+        }
+        return totalDenda
+    }
+}
+fun main(){
+    var pinjem = loan("", "", 1,)
+    val scanner = Scanner(System.`in`)
+    println("Judul Buku: ")
+    pinjem.booktitle=scanner.nextLine()
 
-    val loan = Loan(title, borrower, duration)
+    println("Masukkan nama Peminjam: ")
+    pinjem.borrower=scanner.nextLine()
 
-    println("\n--- DETAIL PEMINJAMAN ---")
-    println("Judul Buku : ${loan.bookTitle}")
-    println("Peminjam  : ${loan.borrower}")
-    println("Durasi    : ${loan.loanDuration} hari")
-    println("Denda     : Rp ${loan.calculateFine()}")
+    println("Pinjam berapa hari? (tidak boleh minus!)")
+    pinjem.loanDuration=scanner.nextInt()
+
+    val denda = pinjem.calculateFine()
+    println("Judul Buku: ${pinjem.booktitle}\nNama Peminjam: ${pinjem.borrower}\nLoan Duration: ${pinjem.loanDuration}\nTotal Denda: Rp $denda")
 }

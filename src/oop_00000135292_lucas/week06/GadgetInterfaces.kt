@@ -1,12 +1,12 @@
 package oop_00000135292_lucas.week06
 
-interface camera {
+interface Camera {
     fun turnOn() {
         println("Lensa kamera terbuka dan sensor aktif.")
     }
 }
 interface Phone {
-    fun turnOn( {
+    fun turnOn() {
         println("Sinyal seluler mencari jaringan")
-    })
+    }
 }

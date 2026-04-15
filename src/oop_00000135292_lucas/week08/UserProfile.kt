@@ -1,4 +1,7 @@
 package oop_00000135292_lucas.week08
 
-class UserProfile {
-}
+class UserProfile(
+    val name: String,
+    val email: String,
+    val phone: String? = null
+)
