@@ -1,6 +1,8 @@
 package oop_00000135292_lucas.week10
 
 fun main() {
-    // Checkpoint 15: Initialize coin repository [cite: 316, 319]
     val coinRepo = WalletRepository<Coin>()
+    coinRepo.add(Coin("BTC", 0.5))
+    coinRepo.add(Coin("ETH", 10.2))
+    coinRepo.add(Coin("USDT", 1500.0))
 }
