@@ -19,3 +19,6 @@ fun main() {
         .sortedBy { it.roe } // Urutan dari minus paling besar
         .map { "LOSS [${it.pair} ${it.position}]: ${it.roe}% ROE (Lev: ${it.leverage}x)" }
     val uniquePairs = tradeHistory.map { it.pair }.toSet()
+    println("=== CRYPTO TRADING DASHBOARD ===")
+    println("--- TOP PERFORMERS ---")
+    topPerformersString.forEach { println(it) }
