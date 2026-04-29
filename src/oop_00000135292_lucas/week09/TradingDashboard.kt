@@ -25,3 +25,5 @@ fun main() {
     println("\n--- WORST PERFORMERS ---")
     worstPerformersString.forEach { println(it) }
     println("\nUnique Pairs Traded: $uniquePairs")
+    println("\nPipeline verification completed. No OPEN status included in analysis.")
+} // Tutup fun main
