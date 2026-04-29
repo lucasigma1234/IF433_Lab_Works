@@ -14,4 +14,11 @@ fun main() {
     val txRepo = WalletRepository<Transaction>()
     txRepo.add(Transaction("TX001", 0.05))
     txRepo.add(Transaction("TX002", 1.2))
+    println("\n--- RECENT TRANSACTIONS ---")
+    txRepo.getAll().forEach { tx ->
+        println("ID: ${tx.id} | Amount: ${tx.amount}")
+    }
+    val searchBtc = coinRepo.find { it.name == "BTC" }
+    println("\nSearch Result: ${searchBtc ?: "Not Found"}")
+    println("\nSystem exit, and keep your logic immutable!") [cite: 348]
 }
